@@ -1,0 +1,7 @@
+{
+  "deno.enable": true,
+  "rust-analyzer.linkedProjects": [
+    "${workspaceFolder}/packages/opsCanvas/Cargo.toml"
+  ],
+  "rust-analyzer.restartServerOnConfigChange": true
+}
