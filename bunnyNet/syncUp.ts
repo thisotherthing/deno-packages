@@ -10,6 +10,16 @@ import { uploadFile } from "./utils/storage/uploadFile.ts";
  * it deletes files that are in the storage zone, but not in the local folder
  * it upload files that are in the local folder, but not in the storage zone
  * it upload files if the hash of the local file is different to the storage zone
+ *
+ * @example
+ * ```ts
+ * await syncUp({
+ *   localFolder: "./dist",
+ *   apiKey: Deno.env.get("BUNNY_STORAGE_API_KEY") || "",
+ *   hostname: Deno.env.get("BUNNY_STORAGE_REGION") || "",
+ *   storageZoneName: Deno.env.get("BUNNY_STORAGE_ZONE_NAME") || "",
+ * });
+ * ```
  */
 export const syncUp = async (
   options: {

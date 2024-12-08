@@ -1,6 +1,14 @@
 /**
  * Purge Pull Zone cache
  * calls https://api.bunny.net/pullzone/{id}/purgeCache
+ *
+ * @example
+ * ```ts
+ * await purgeCache({
+ *   apiKey: Deno.env.get("BUNNY_API_KEY") || "",
+ *   pullZoneId: Deno.env.get("BUNNY_PULL_ZONE_ID") || "",
+ * });
+ * ```
  */
 export const purgeCache = async (
   options: { pullZoneId: string; apiKey: string },
