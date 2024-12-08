@@ -1,5 +1,5 @@
-import { crypto } from "jsr:@std/crypto";
-import { encodeHex } from "jsr:@std/encoding/hex";
+import { crypto } from "@std/crypto";
+import { encodeHex } from "@std/encoding";
 
 export const getFileHash = async (path: string): Promise<string> => {
   const file = await Deno.open(path, { read: true });

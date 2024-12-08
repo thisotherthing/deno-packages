@@ -3,7 +3,7 @@
  */
 export const purgeCache = async (
   options: { pullZoneId: string; apiKey: string },
-) => {
+): Promise<void> => {
   const url = `https://api.bunny.net/pullzone/${options.pullZoneId}/purgeCache`;
 
   const response = await fetch(url, {

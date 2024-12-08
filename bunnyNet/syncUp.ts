@@ -1,4 +1,4 @@
-import { join } from "jsr:@std/path/join";
+import { join } from "@std/path";
 import type { BunnyApiStoratgeZoneOptions } from "./types.ts";
 import { deleteFile } from "./utils/storage/deleteFile.ts";
 import { getLocalFileList } from "./utils/storage/getLocalFileList.ts";
@@ -9,7 +9,7 @@ export const syncUp = async (
   options: {
     localFolder: string;
   } & BunnyApiStoratgeZoneOptions,
-) => {
+): Promise<void> => {
   const remoteFiles = await getRemoteFileList(options);
 
   const localFiles = await getLocalFileList(options.localFolder);
