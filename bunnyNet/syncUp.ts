@@ -5,6 +5,12 @@ import { getLocalFileList } from "./utils/storage/getLocalFileList.ts";
 import { getRemoteFileList } from "./utils/storage/getRemoteFileList.ts";
 import { uploadFile } from "./utils/storage/uploadFile.ts";
 
+/**
+ * Sync local folder with Storage Zone
+ * it deletes files that are in the storage zone, but not in the local folder
+ * it upload files that are in the local folder, but not in the storage zone
+ * it upload files if the hash of the local file is different to the storage zone
+ */
 export const syncUp = async (
   options: {
     localFolder: string;

@@ -1,5 +1,6 @@
 /**
- * https://api.bunny.net/pullzone/{id}/purgeCache
+ * Purge Pull Zone cache
+ * calls https://api.bunny.net/pullzone/{id}/purgeCache
  */
 export const purgeCache = async (
   options: { pullZoneId: string; apiKey: string },
