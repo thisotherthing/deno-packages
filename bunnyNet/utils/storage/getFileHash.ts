@@ -1,5 +1,4 @@
-import { crypto } from "@std/crypto";
-import { encodeHex } from "@std/encoding";
+import { crypto, encodeHex } from "../../deps.ts";
 
 export const getFileHash = async (path: string): Promise<string> => {
   const file = await Deno.open(path, { read: true });

@@ -1,4 +1,4 @@
-import { walkSync } from "@std/fs";
+import { walkSync } from "../../deps.ts";
 import type { FileList } from "../../types.ts";
 import { getFileHash } from "./getFileHash.ts";
 

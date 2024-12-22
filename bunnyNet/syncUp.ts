@@ -1,4 +1,4 @@
-import { join } from "@std/path";
+import { join } from "./deps.ts";
 import type { BunnyApiStoratgeZoneOptions } from "./types.ts";
 import { deleteFile } from "./utils/storage/deleteFile.ts";
 import { getLocalFileList } from "./utils/storage/getLocalFileList.ts";
