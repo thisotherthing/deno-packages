@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "publish:bunny-net": "cd ./bunnyNet && npx jsr publish",
+    "publish:bunny-net": "cd ./bunnyNet && deno publish",
     "publish": "deno task publish:bunny-net"
   }
 }
