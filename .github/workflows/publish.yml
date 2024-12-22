@@ -17,4 +17,5 @@ jobs:
     - name: Install Deno
       uses: denoland/setup-deno@v2
     - name: Publish
-      run: deno task publish:bunny-net
+      working-directory: ./bunnyNet
+      run: npx jsr publish
