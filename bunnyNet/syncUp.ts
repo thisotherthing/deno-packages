@@ -25,7 +25,7 @@ export const syncUp = async (
   options: {
     localFolder: string;
   } & BunnyApiStoratgeZoneOptions,
-): Promise<void> => {
+): Promise<{ neededToUpdateFiles: boolean }> => {
   const remoteFiles = await getRemoteFileList(options);
 
   const localFiles = await getLocalFileList(options.localFolder);
@@ -67,4 +67,8 @@ export const syncUp = async (
       remotefilePath: uploadPath,
     });
   }
+
+  return {
+    neededToUpdateFiles: remoteFilesToDelete.size > 0 || filesToUpload.size > 0,
+  };
 };
