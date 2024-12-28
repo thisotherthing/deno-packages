@@ -11,7 +11,7 @@ import { syncUp } from "./syncUp.ts";
  *   storageZoneApiKey: Deno.env.get("BUNNY_STORAGE_API_KEY") || "",
  *   hostname: Deno.env.get("BUNNY_STORAGE_REGION") || "",
  *   storageZoneName: Deno.env.get("BUNNY_STORAGE_ZONE_NAME") || "",
- *   pullZoneApiKey: Deno.env.get("BUNNY_PULL_ZONE_API_KEY") || "",
+ *   apiKey: Deno.env.get("BUNNY_API_KEY") || "",
  *   pullZoneId: Deno.env.get("BUNNY_PULL_ZONE_ID") || "",
  * });
  * ```
