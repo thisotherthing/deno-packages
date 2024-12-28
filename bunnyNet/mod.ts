@@ -3,5 +3,7 @@
  * @module
  */
 
-export { syncUp } from "./syncUp.ts";
-export { purgeCache } from "./utils/cdn/purgeCache.ts";
+export { syncUp } from "./functions/syncUp.ts";
+export { purgeCache } from "./bunnyNetUtils/cdn/purgeCache.ts";
+
+export { syncUpAndPurgeCache } from "./functions/syncUpAndPurgeCache.ts";
