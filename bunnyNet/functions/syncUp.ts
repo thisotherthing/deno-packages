@@ -7,9 +7,9 @@ import { uploadFile } from "../bunnyNetUtils/storage/uploadFile.ts";
 
 /**
  * Sync local folder with Storage Zone
- * it deletes files that are in the storage zone, but not in the local folder
- * it uploads files that are in the local folder, but not in the storage zone
- * it uploads files if the hash of the local file is different to the storage zone
+ * - it deletes files that are in the storage zone, but not in the local folder
+ * - it uploads files that are in the local folder, but not in the storage zone
+ * - it uploads files if the hash of the local file is different to the one in the storage zone
  *
  * @example
  * ```ts

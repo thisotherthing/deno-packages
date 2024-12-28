@@ -2,7 +2,7 @@ import { purgeCache } from "../bunnyNetUtils/cdn/purgeCache.ts";
 import { syncUp } from "./syncUp.ts";
 
 /**
- * Sync local folder with Storage Zone and purge Pull Zone, if files changes
+ * Sync local folder with Storage Zone and purge Pull Zone, if files were changed
  *
  * @example
  * ```ts
