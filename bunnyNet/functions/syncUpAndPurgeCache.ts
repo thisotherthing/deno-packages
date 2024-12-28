@@ -22,5 +22,7 @@ export const syncUpAndPurgeCache = async (
 
   if (syncResult.neededToUpdateFiles) {
     await purgeCache(options);
+  } else {
+    console.info("no files were updated, so skipping cache purge");
   }
 };
