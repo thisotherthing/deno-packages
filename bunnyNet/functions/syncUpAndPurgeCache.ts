@@ -19,8 +19,8 @@ import { syncUp } from "./syncUp.ts";
 export const syncUpAndPurgeCache = async (
   options:
     & Omit<Parameters<typeof syncUp>[0], "apiKey">
-    & Omit<Parameters<typeof purgeCache>[0], "apiKey">
-    & { storageZoneApiKey: string; pullZoneApiKey: string },
+    & Parameters<typeof purgeCache>[0]
+    & { storageZoneApiKey: string },
 ): Promise<void> => {
   const syncResult = await syncUp({
     ...options,
@@ -28,10 +28,7 @@ export const syncUpAndPurgeCache = async (
   });
 
   if (syncResult.neededToUpdateFiles) {
-    await purgeCache({
-      ...options,
-      apiKey: options.pullZoneApiKey,
-    });
+    await purgeCache(options);
   } else {
     console.info("no files were updated, so skipping cache purge");
   }
