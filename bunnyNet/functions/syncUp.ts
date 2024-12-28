@@ -54,7 +54,7 @@ export const syncUp = async (
 
   console.info(`files to delete: ${remoteFilesToDelete.size}`);
   for (const deletePath of remoteFilesToDelete) {
-    console.log(`deletting "${deletePath}...`);
+    console.log(`deleting "${deletePath}...`);
     await deleteFile({ ...options, path: deletePath });
   }
 
