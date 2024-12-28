@@ -8,20 +8,30 @@ import { syncUp } from "./syncUp.ts";
  * ```ts
  * await syncUpAndPurgeCache({
  *   localFolder: "./dist",
- *   apiKey: Deno.env.get("BUNNY_STORAGE_API_KEY") || "",
+ *   storageZoneApiKey: Deno.env.get("BUNNY_STORAGE_API_KEY") || "",
  *   hostname: Deno.env.get("BUNNY_STORAGE_REGION") || "",
  *   storageZoneName: Deno.env.get("BUNNY_STORAGE_ZONE_NAME") || "",
+ *   pullZoneApiKey: Deno.env.get("BUNNY_PULL_ZONE_API_KEY") || "",
  *   pullZoneId: Deno.env.get("BUNNY_PULL_ZONE_ID") || "",
  * });
  * ```
  */
 export const syncUpAndPurgeCache = async (
-  options: Parameters<typeof syncUp>[0] & Parameters<typeof purgeCache>[0],
+  options:
+    & Omit<Parameters<typeof syncUp>[0], "apiKey">
+    & Omit<Parameters<typeof purgeCache>[0], "apiKey">
+    & { storageZoneApiKey: string; pullZoneApiKey: string },
 ): Promise<void> => {
-  const syncResult = await syncUp(options);
+  const syncResult = await syncUp({
+    ...options,
+    apiKey: options.storageZoneApiKey,
+  });
 
   if (syncResult.neededToUpdateFiles) {
-    await purgeCache(options);
+    await purgeCache({
+      ...options,
+      apiKey: options.pullZoneApiKey,
+    });
   } else {
     console.info("no files were updated, so skipping cache purge");
   }

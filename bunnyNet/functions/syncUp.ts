@@ -1,5 +1,5 @@
 import { join } from "../deps.ts";
-import type { BunnyApiStoratgeZoneOptions } from "../types.ts";
+import type { BunnyApiStorageZoneOptions } from "../types.ts";
 import { deleteFile } from "../bunnyNetUtils/storage/deleteFile.ts";
 import { getLocalFileList } from "../bunnyNetUtils/storage/getLocalFileList.ts";
 import { getRemoteFileList } from "../bunnyNetUtils/storage/getRemoteFileList.ts";
@@ -24,7 +24,7 @@ import { uploadFile } from "../bunnyNetUtils/storage/uploadFile.ts";
 export const syncUp = async (
   options: {
     localFolder: string;
-  } & BunnyApiStoratgeZoneOptions,
+  } & BunnyApiStorageZoneOptions,
 ): Promise<{ neededToUpdateFiles: boolean }> => {
   const remoteFiles = await getRemoteFileList(options);
 

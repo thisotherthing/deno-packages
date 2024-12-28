@@ -2,7 +2,7 @@ export type BunnyApiOptions = {
   apiKey: string;
 };
 
-export type BunnyApiStoratgeZoneOptions = BunnyApiOptions & {
+export type BunnyApiStorageZoneOptions = BunnyApiOptions & {
   /**
    * for instance "storage.bunnycdn.com" for region Falkenstein, DE
    * https://docs.bunny.net/reference/put_-storagezonename-path-filename#api-base-endpoint

@@ -1,4 +1,4 @@
-import type { BunnyApiStoratgeZoneOptions, FileList } from "../../types.ts";
+import type { BunnyApiStorageZoneOptions, FileList } from "../../types.ts";
 
 export type BunnyStorageObject = {
   Path: string;
@@ -11,7 +11,7 @@ export type BunnyStorageObject = {
  * https://docs.bunny.net/reference/get_-storagezonename-path-
  */
 const getFilesList = async (
-  options: BunnyApiStoratgeZoneOptions & { path?: string },
+  options: BunnyApiStorageZoneOptions & { path?: string },
 ): Promise<BunnyStorageObject[]> => {
   const urlBuilder: string[] = [];
 
@@ -40,7 +40,7 @@ const getFilesList = async (
 
 export const setRecursiveFileList = async (
   target: FileList,
-  options: BunnyApiStoratgeZoneOptions & { path?: string },
+  options: BunnyApiStorageZoneOptions & { path?: string },
 ) => {
   const folderData = await getFilesList(options);
 
@@ -58,7 +58,7 @@ export const setRecursiveFileList = async (
 };
 
 export const getRemoteFileList = async (
-  options: BunnyApiStoratgeZoneOptions & { path?: string },
+  options: BunnyApiStorageZoneOptions & { path?: string },
 ): Promise<FileList> => {
   const fileList: FileList = {};
 

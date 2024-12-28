@@ -1,10 +1,10 @@
-import type { BunnyApiStoratgeZoneOptions } from "../../types.ts";
+import type { BunnyApiStorageZoneOptions } from "../../types.ts";
 
 /**
  * https://docs.bunny.net/reference/delete_-storagezonename-path-filename
  */
 export const deleteFile = async (
-  options: BunnyApiStoratgeZoneOptions & { path: string },
+  options: BunnyApiStorageZoneOptions & { path: string },
 ): Promise<void> => {
   const urlBuilder: string[] = [];
 
