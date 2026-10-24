@@ -20,12 +20,10 @@ export const getLocalFileList = async (
       ),
   ];
 
-  // we don't want to include the root path
-  // so we count how many chars to remove from the start of the paths
-  const startPathCharsToRemove = path.length - 1;
+  console.log({ localFilePaths });
 
   for (const item of localFilePaths) {
-    fileList[item.substring(startPathCharsToRemove)] = await getFileHash(item);
+    fileList[item] = await getFileHash(item);
   }
 
   return fileList;
