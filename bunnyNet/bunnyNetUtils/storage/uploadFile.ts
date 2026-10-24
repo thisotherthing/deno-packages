@@ -1,3 +1,4 @@
+import { createReadStream } from "../../deps.ts";
 import type { BunnyApiStorageZoneOptions } from "../../types.ts";
 
 /**
@@ -17,7 +18,7 @@ export const uploadFile = async (
 
   const url = `https://${urlBuilder.filter(Boolean).join("/")}`;
 
-  const file = await Deno.open(options.localFilePath);
+  const file = createReadStream(options.localFilePath);
 
   const response = await fetch(url, {
     method: "PUT",
@@ -25,7 +26,7 @@ export const uploadFile = async (
       AccessKey: options.apiKey,
       "Content-Type": "application/octet-stream",
     },
-    body: file.readable,
+    body: file,
   });
 
   if (response.status !== 201) {
