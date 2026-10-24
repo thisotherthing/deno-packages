@@ -27,6 +27,7 @@ export const uploadFile = async (
       "Content-Type": "application/octet-stream",
     },
     body: file,
+    // duplex: "half",
   });
 
   if (response.status !== 201) {
