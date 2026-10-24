@@ -1,4 +1,4 @@
-import { createReadStream } from "../../deps.ts";
+import { readFile } from "../../deps.ts";
 import type { BunnyApiStorageZoneOptions } from "../../types.ts";
 
 /**
@@ -18,7 +18,7 @@ export const uploadFile = async (
 
   const url = `https://${urlBuilder.filter(Boolean).join("/")}`;
 
-  const file = createReadStream(options.localFilePath);
+  const file = await readFile(options.localFilePath);
 
   const response = await fetch(url, {
     method: "PUT",
@@ -27,7 +27,6 @@ export const uploadFile = async (
       "Content-Type": "application/octet-stream",
     },
     body: file,
-    // duplex: "half",
   });
 
   if (response.status !== 201) {
