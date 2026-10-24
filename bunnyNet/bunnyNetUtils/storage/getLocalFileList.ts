@@ -1,4 +1,4 @@
-import { join, readdirSync } from "../../deps.ts";
+import { join, readdirSync, relative } from "../../deps.ts";
 import type { FileList } from "../../types.ts";
 import { getFileHash } from "./getFileHash.ts";
 
@@ -20,12 +20,8 @@ export const getLocalFileList = async (
       ),
   ];
 
-  // we don't want to include the root path
-  // so we count how many chars to remove from the start of the paths
-  const startPathCharsToRemove = path.length - 1;
-
   for (const item of localFilePaths) {
-    fileList[item.substring(startPathCharsToRemove)] = await getFileHash(item);
+    fileList[relative(path, item)] = await getFileHash(item);
   }
 
   console.log({ fileList });

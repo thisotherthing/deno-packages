@@ -1,6 +1,6 @@
 {
   "name": "@thisotherthing/bunny-net",
-  "version": "0.3.0-alpha.6",
+  "version": "0.3.0-alpha.7",
   "license": "MIT",
   "exports": "./mod.ts"
 }
