@@ -13,7 +13,7 @@ export const getLocalFileList = async (
       encoding: "utf8",
       withFileTypes: true,
     })
-      .filter((e) => e.isFile)
+      .filter((e) => e.isFile())
       .map((e) => join(e.parentPath, e.name))
       .filter((e) =>
         ![".DS_Store"].some((filterWord) => e.endsWith(filterWord))
